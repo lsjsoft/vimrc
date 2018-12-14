@@ -3,6 +3,11 @@ set fileencodings=utf-8,ucs-bom,cp936,big5
 
 "设置默认配色方案
 colorscheme default
+" win7
+colorscheme darkblue
+" xp
+colorscheme blue
+
 set nu
 set ts=4 sts=4 sw=4
 set autoindent
