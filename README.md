@@ -10,3 +10,13 @@ vim的配置文件备份，办公室的，家里的，虚拟机的。。。每�
 ### 适用范围
 ---
 - 操作系统 linux
+
+
+### 扯淡
+---
+deepin是适合工作的linux操作系统，最好用的没有之一。以后可能会使用更好用的linux版本吧。
+
+
+### github仓库地址
+---
+- github: https://github.com/jiftle/vimrc.git

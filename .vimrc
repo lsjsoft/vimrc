@@ -10,6 +10,8 @@ set expandtab
 " 高亮当前行
 set cursorline
 
+" Markdown不自动预览
+let g:instant_markdown_autostart = 0
 
 call plug#begin('~/.vim/plugged')
 
@@ -32,6 +34,10 @@ Plug 'yianwillis/vimcdoc'
 " Markdown实时预览
 Plug 'suan/vim-instant-markdown'
 
+" Bus Hound 抓包语法高亮显示
+" Plug 'jiftle/bushound-syntax'
+
 " Initialize plugin system
 call plug#end()
+
 
