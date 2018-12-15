@@ -32,6 +32,9 @@ deepin是适合工作的linux操作系统，最好用的没有之一。以后可
 - 不加载用户目录下vimrc文件
 	- 原因： 用户目录下没有.vimrc文件，默认加载vim安装目录下的_vimrc文件
 	- vimrc加载顺序，详细参考： https://www.cnblogs.com/litifeng/p/5597494.html
+- 启动时提示未能识别的plug...
+    - 原因： .vim下autoload下的Plug.vim插件未能识别
+    - 处理办法： 手动复制Plug.vim到gvim的autoload目录下
 
 
 ### Thanks
