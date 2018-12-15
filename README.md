@@ -36,4 +36,4 @@ deepin是适合工作的linux操作系统，最好用的没有之一。以后可
 
 ### Thanks
 ---
-- [vimrc](https://github.com/junegunn/vim-plug/)
+- [vimplug](https://github.com/junegunn/vim-plug/)
