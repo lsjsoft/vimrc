@@ -1,6 +1,12 @@
 "设置编码,处理中文乱码,文件默认utf8编码
 set fileencodings=utf-8,ucs-bom,cp936,big5
 
+" 不兼容vi，避免以前版本的bug和局限
+set nocompatible
+
+" 处理backspace键不能删除问题
+set backspace=indent,eol,start
+
 "设置默认配色方案
 colorscheme default
 " win7
@@ -16,7 +22,7 @@ set expandtab
 set cursorline
 
 " Markdown不自动预览
-let g:instant_markdown_autostart = 0
+" let g:instant_markdown_autostart = 0
 
 call plug#begin('~/.vim/plugged')
 
@@ -37,7 +43,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'yianwillis/vimcdoc'
 
 " Markdown实时预览
-Plug 'suan/vim-instant-markdown'
+" Plug 'suan/vim-instant-markdown'
 
 " Bus Hound 抓包语法高亮显示
 " Plug 'jiftle/bushound-syntax'
