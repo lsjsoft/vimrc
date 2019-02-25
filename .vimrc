@@ -48,6 +48,9 @@ Plug 'yianwillis/vimcdoc'
 " Bus Hound 抓包语法高亮显示
 " Plug 'jiftle/bushound-syntax'
 
+" Go语言插件
+Plug 'fatih/vim-go'
+
 " Initialize plugin system
 call plug#end()
 
