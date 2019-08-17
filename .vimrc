@@ -1,5 +1,6 @@
 "设置编码,处理中文乱码,文件默认utf8编码
 set fileencodings=utf-8,ucs-bom,cp936,big5
+set encoding=UTF-8
 
 " 不兼容vi，避免以前版本的bug和局限
 set nocompatible
@@ -25,6 +26,7 @@ set nu
 set ts=2 sts=2 sw=2
 " 自动缩进
 set autoindent
+" 用空格代替制表符
 set expandtab
 
 " 高亮当前行
@@ -36,12 +38,14 @@ let g:instant_markdown_autostart = 0
 " -------------------- tagbar ---------------
 " 设置tagbar的窗口宽度
 let g:tagbar_width=30
-" 映射Tagbar的快捷键,按F8自动打开
-map <F8> :TagbarToggle<CR>
+" 映射Tagbar的快捷键,自动打开
+map <F3> :TagbarToggle<CR>
+map <F4> :NERDTreeToggle<CR>
+map <F5> :MRU<CR>
+
 
 " -------------------- 插件声明 ------------
 call plug#begin('~/.vim/plugged')
-
 " Make sure you use single quotes
 
 " 一款文本对齐的插件，非常神奇
@@ -68,11 +72,24 @@ Plug 'jiftle/bushound-syntax'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'dgryski/vim-godef'
 
+
+" ------------------ 窗口管理 配置成IDE ---------------
+" Buffer
+Plug 'vim-scripts/bufexplorer.zip'
 " 显示tag
 Plug 'majutsushi/tagbar'
+" 最近打开
+Plug 'vim-scripts/mru.vim'
 
-" Go语言插件
-Plug 'fatih/vim-go'
+" 超级搜索，Buf,File等,:CtrlP 调出搜索窗口
+Plug 'ctrlpvim/ctrlp.vim'
+
+" 文件浏览器显示好看的图标
+Plug 'ryanoasis/vim-devicons'
+" 对图标进行美化
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" git状态显示
+Plug 'Xuyuanp/nerdtree-git-plugin' 
 
 " Initialize plugin system
 call plug#end()
