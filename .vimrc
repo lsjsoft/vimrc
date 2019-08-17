@@ -1,23 +1,45 @@
 "设置编码,处理中文乱码,文件默认utf8编码
 set fileencodings=utf-8,ucs-bom,cp936,big5
 
-"设置默认配色方案
-colorscheme default
-" win7
-colorscheme darkblue
-" xp
-colorscheme blue
+" 不兼容vi，避免以前版本的bug和局限
+set nocompatible
 
+" 处理backspace键不能删除问题
+set backspace=indent,eol,start
+
+if has('unix')
+  "设置默认配色方案
+  colorscheme default
+elseif has('win64')
+  " win7
+  colorscheme darkblue
+elseif has('win32')
+  " xp
+  colorscheme blue
+else
+endif
+
+" 显示行号
 set nu
-set ts=4 sts=4 sw=4
+" 设置tabstop
+set ts=2 sts=2 sw=2
+" 自动缩进
 set autoindent
 set expandtab
+
 " 高亮当前行
 set cursorline
 
 " Markdown不自动预览
 let g:instant_markdown_autostart = 0
 
+" -------------------- tagbar ---------------
+" 设置tagbar的窗口宽度
+let g:tagbar_width=30
+" 映射Tagbar的快捷键,按F8自动打开
+map <F8> :TagbarToggle<CR>
+
+" -------------------- 插件声明 ------------
 call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
@@ -40,7 +62,14 @@ Plug 'yianwillis/vimcdoc'
 Plug 'suan/vim-instant-markdown'
 
 " Bus Hound 抓包语法高亮显示
-" Plug 'jiftle/bushound-syntax'
+Plug 'jiftle/bushound-syntax'
+
+" go语言插件
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'dgryski/vim-godef'
+
+" 显示tag
+Plug 'majutsushi/tagbar'
 
 " Initialize plugin system
 call plug#end()
