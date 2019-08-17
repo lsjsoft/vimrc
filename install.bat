@@ -4,5 +4,6 @@ echo ^-^-^> start install .vimrc"
 copy /y ".vimrc" "%USERPROFILE%"
 :: ¸´ÖÆ.vimÎÄ¼þ¼Ð
 echo ^-^-^> copy .vimrc to user dir
-xcopy /e/y/i/f ".vim" "%USERPROFILE%\.vim"
+xcopy /e/y/i/f ".vim" "%USERPROFILE%\vimfiles"
 echo ^-^-^> install successfully
+pause
