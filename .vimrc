@@ -7,6 +7,16 @@ set nocompatible
 " 处理backspace键不能删除问题
 set backspace=indent,eol,start
 
+"设置默认配色方案
+colorscheme default
+" win7
+colorscheme darkblue
+" xp
+colorscheme blue
+
+" 处理backspace键不能删除问题
+set backspace=indent,eol,start
+
 if has('unix')
   "设置默认配色方案
   colorscheme default
@@ -70,6 +80,9 @@ Plug 'dgryski/vim-godef'
 
 " 显示tag
 Plug 'majutsushi/tagbar'
+
+" Go语言插件
+Plug 'fatih/vim-go'
 
 " Initialize plugin system
 call plug#end()
