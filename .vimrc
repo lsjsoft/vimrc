@@ -52,28 +52,32 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-easy-align'
 
 " On-demand loading 按需加载
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
+" --------------- Vim美化 ----------------
 " 好看的状态栏
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" --------------- 帮助系统 ----------------
 " 中文帮助
 Plug 'yianwillis/vimcdoc'
 
+" --------------- Markdown ----------------
 " Markdown实时预览
 Plug 'suan/vim-instant-markdown'
 
 " Bus Hound 抓包语法高亮显示
 Plug 'jiftle/bushound-syntax'
 
-" go语言插件
+" ------------------- go语言插件 -----------------
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'dgryski/vim-godef'
 
 
 " ------------------ 窗口管理 配置成IDE ---------------
+"  树状文件浏览器
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " Buffer
 Plug 'vim-scripts/bufexplorer.zip'
 " 显示tag
@@ -81,8 +85,10 @@ Plug 'majutsushi/tagbar'
 " 最近打开
 Plug 'vim-scripts/mru.vim'
 
-" 超级搜索，Buf,File等,:CtrlP 调出搜索窗口
+" 超级搜索，Buf,File等
 Plug 'ctrlpvim/ctrlp.vim'
+" 搜索文件内容
+Plug 'tacahiroy/ctrlp-funky'
 
 " 文件浏览器显示好看的图标
 Plug 'ryanoasis/vim-devicons'
