@@ -11,6 +11,12 @@ vim的配置文件备份，办公室的，家里的，虚拟机的。。。每�
 ---
 - 操作系统 linux, windows xp 以上
 
+## 使用
+
+- 第一步 `git clone https://github.com/jiftle/vimrc.git'
+- 第二步 `cd vimrc`
+- 第三步 `sh install.sh`
+- 第四步 启动vim，命令模式执行`:PlugInstall`
 
 ### 扯淡
 ---
