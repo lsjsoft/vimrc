@@ -41,7 +41,42 @@ let g:tagbar_width=30
 " 映射Tagbar的快捷键,自动打开
 map <F3> :TagbarToggle<CR>
 map <F4> :NERDTreeToggle<CR>
-map <F5> :MRU<CR>
+" 编译运行
+map <F5> :call CompileRunGcc()<CR>
+map <F6> :MRU<CR>
+
+" ----------------- 编译 ---------------
+" 编译
+func! CompileRunGcc()
+    exec "w"
+    exec "!clear"
+	if &filetype == 'c'
+		exec "!g++ % -o %<"
+		exec "!time ./%<"
+	elseif &filetype == 'cpp'
+		exec "!g++ % -o %<"
+		exec "!time ./%<"
+	elseif &filetype == 'javascript'
+		exec "!node %<"
+	elseif &filetype == 'java' 
+		exec "!javac %" 
+		exec "!time java %<"
+	elseif &filetype == 'sh'
+		:!time bash %
+	elseif &filetype == 'python'
+		exec "!time python2.7 %"
+    elseif &filetype == 'html'
+        exec "!firefox % &"
+    elseif &filetype == 'go'
+    "    exec "!go build %<"
+    "    exec "!time go run %"
+         exec ":GoBuild"
+         exec ":GoRun"
+    elseif &filetype == 'mkd'
+        exec "!~/.vim/markdown.pl % > %.html &"
+        exec "!firefox %.html &"
+	endif
+endfunc
 
 
 " -------------------- 插件声明 ------------
@@ -96,6 +131,18 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " git状态显示
 Plug 'Xuyuanp/nerdtree-git-plugin' 
+
+" ----------- 批量注释 ---------------
+Plug 'scrooloose/nerdcommenter'
+
+" ------------ 主题配色 ----------------
+Plug 'altercation/vim-colors-solarized'
+Plug 'joshdick/onedark.vim'
+Plug 'morhetz/gruvbox'
+Plug 'liuchengxu/space-vim-theme'
+Plug 'tomasiser/vim-code-dark'
+Plug 'jdkanani/vim-material-theme'
+Plug 'iCyMind/NeoSolarized'
 
 " Initialize plugin system
 call plug#end()
