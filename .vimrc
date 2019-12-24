@@ -33,7 +33,7 @@ set expandtab
 set cursorline
 
 " Markdown不自动预览
-let g:instant_markdown_autostart = 0
+" let g:instant_markdown_autostart = 0
 
 " -------------------- tagbar ---------------
 " 设置tagbar的窗口宽度
@@ -106,8 +106,8 @@ Plug 'suan/vim-instant-markdown'
 Plug 'jiftle/bushound-syntax'
 
 " ------------------- go语言插件 -----------------
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'dgryski/vim-godef'
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'dgryski/vim-godef'
 
 
 " ------------------ 窗口管理 配置成IDE ---------------
@@ -144,7 +144,22 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'jdkanani/vim-material-theme'
 Plug 'iCyMind/NeoSolarized'
 
+" ---------------- 快捷代码块 --------------
+" Track the engine.
+Plug 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+Plug 'jiftle/vim-snippets-jiftle'
+
 " Initialize plugin system
 call plug#end()
 
+" -------------- 解决YCM和UltiSnaps冲突 -----------------
+"let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
+"let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
