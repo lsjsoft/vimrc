@@ -1,6 +1,6 @@
 "设置编码,处理中文乱码,文件默认utf8编码
 set fileencodings=utf-8,ucs-bom,cp936,big5
-set encoding=UTF-8
+set encoding=utf-8
 
 " 不兼容vi，避免以前版本的bug和局限
 set nocompatible
@@ -49,6 +49,7 @@ map <F6> :MRU<CR>
 " 编译
 func! CompileRunGcc()
     exec "w"
+    " 清理屏幕
     exec "!clear"
 	if &filetype == 'c'
 		exec "!g++ % -o %<"
@@ -155,11 +156,50 @@ Plug 'jiftle/vim-snippets-jiftle'
 " Initialize plugin system
 call plug#end()
 
-" -------------- 解决YCM和UltiSnaps冲突 -----------------
-"let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
-"let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
+" ------------------ UltiSnaps配置 ------------------                                                                                                  
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" If you want :UltiSnipsEdit to split your window.
+" let g:UltiSnipsEditSplit="vertical"
+
+
+" --------------------- 解决YCM和UltiSnips键冲突的问题 ---------------                                                                                 
+function! g:UltiSnips_Complete()
+  call UltiSnips#ExpandSnippet()
+  if g:ulti_expand_res == 0
+    if pumvisible()
+      return "\<C-n>"
+    else
+      call UltiSnips#JumpForwards()
+      if g:ulti_jump_forwards_res == 0
+        return "\<TAB>"
+      endif
+    endif
+  endif
+  return ""
+endfunction
+
+function! g:UltiSnips_Reverse()
+  call UltiSnips#JumpBackwards()
+  if g:ulti_jump_backwards_res == 0
+    return "\<C-P>"
+  endif
+
+  return ""
+endfunction
+
+if !exists("g:UltiSnipsJumpForwardTrigger")
+  let g:UltiSnipsJumpForwardTrigger = "<tab>"
+endif
+if !exists("g:UltiSnipsJumpBackwardTrigger")
+  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+endif
+
+
+
+au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
+au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
 
